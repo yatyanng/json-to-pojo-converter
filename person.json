@@ -1,14 +1,56 @@
 {
 	"type": "object",
+	"javaInterfaces": [
+		"java.io.Serializable"
+	],
+	"extends": {
+		"$ref": "mammal.json"
+	},
 	"properties": {
 		"name": {
-			"type": "string"
+			"type": "string",
+			"default": "Anonymous",
+			"required": true,
+			"title": "Given Name of the Person",
+			"description": "This name must be registered."
 		},
-		"age": {
-			"type": "integer"
+		"leftHanded": {
+			"type": "boolean",
+			"title": "Left handed",
+			"description": "This flag indicates whether the person prefers to use his left hand."
 		},
-		"male": {
-			"type": "boolean"
+		"gender": {
+			"type": "string",
+			"required": true,
+			"enum": [
+				"male",
+				"female"
+			],
+			"javaEnums": [
+				"MALE",
+				"FEMALE"
+			]
+		},
+		"alias": {
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"type": "string"
+			}
+		},
+		"father": {
+			"type": "object",
+			"javaType": "com.example.Person"
+		},
+		"mother": {
+			"$ref": "#/properties/father"
+		},
+		"siblings": {
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"$ref": "person.json"
+			}
 		}
 	}
 }

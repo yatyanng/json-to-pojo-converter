@@ -1,0 +1,20 @@
+{
+	"type": "object",
+	"javaInterfaces" : ["java.io.Serializable"],
+	"properties": {
+		"species": {
+			"type": "string",
+			"default": "Unknown Species",
+			"required": true
+		},
+		"birthDate": {
+		    "type": "string",
+		    "format": "date-time",
+			"title": "The exact birth date of this person"
+		},
+		"age": {
+			"type": "integer",
+			"required": true
+		}
+	}
+}
